@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		462C9AC023CB3EB800F9910A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C9ABF23CB3EB800F9910A /* AppDelegate.swift */; };
-		462C9AC423CB3EB800F9910A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C9AC323CB3EB800F9910A /* ViewController.swift */; };
+		462C9AC423CB3EB800F9910A /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C9AC323CB3EB800F9910A /* RootNavigationController.swift */; };
 		462C9AC923CB3EBC00F9910A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 462C9AC823CB3EBC00F9910A /* Assets.xcassets */; };
 		462C9ACC23CB3EBC00F9910A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 462C9ACA23CB3EBC00F9910A /* LaunchScreen.storyboard */; };
 		462C9AD723CB3EBC00F9910A /* photo_castTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C9AD623CB3EBC00F9910A /* photo_castTests.swift */; };
 		462C9AE223CB3EBC00F9910A /* photo_castUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C9AE123CB3EBC00F9910A /* photo_castUITests.swift */; };
+		462C9AF023CB5E6F00F9910A /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C9AEF23CB5E6F00F9910A /* PhotosService.swift */; };
+		462C9AF223CB691500F9910A /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C9AF123CB691500F9910A /* PhotosViewController.swift */; };
+		462C9AF523CB697D00F9910A /* PhotosPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C9AF423CB697D00F9910A /* PhotosPresenter.swift */; };
+		462C9AF823CB6AB600F9910A /* UIResponder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C9AF723CB6AB600F9910A /* UIResponder+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +39,7 @@
 /* Begin PBXFileReference section */
 		462C9ABC23CB3EB800F9910A /* photo-cast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "photo-cast.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		462C9ABF23CB3EB800F9910A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		462C9AC323CB3EB800F9910A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		462C9AC323CB3EB800F9910A /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		462C9AC823CB3EBC00F9910A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		462C9ACB23CB3EBC00F9910A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		462C9ACD23CB3EBC00F9910A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +49,10 @@
 		462C9ADD23CB3EBC00F9910A /* photo-castUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "photo-castUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		462C9AE123CB3EBC00F9910A /* photo_castUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photo_castUITests.swift; sourceTree = "<group>"; };
 		462C9AE323CB3EBC00F9910A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		462C9AEF23CB5E6F00F9910A /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
+		462C9AF123CB691500F9910A /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		462C9AF423CB697D00F9910A /* PhotosPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPresenter.swift; sourceTree = "<group>"; };
+		462C9AF723CB6AB600F9910A /* UIResponder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4627EE7023CB6CE30060332A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				462C9AEF23CB5E6F00F9910A /* PhotosService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		462C9AB323CB3EB800F9910A = {
 			isa = PBXGroup;
 			children = (
@@ -96,7 +112,10 @@
 			isa = PBXGroup;
 			children = (
 				462C9ABF23CB3EB800F9910A /* AppDelegate.swift */,
-				462C9AC323CB3EB800F9910A /* ViewController.swift */,
+				462C9AC323CB3EB800F9910A /* RootNavigationController.swift */,
+				462C9AF323CB696D00F9910A /* PhotosViewController */,
+				462C9AF623CB6A9500F9910A /* Extensions */,
+				4627EE7023CB6CE30060332A /* Services */,
 				462C9AC823CB3EBC00F9910A /* Assets.xcassets */,
 				462C9ACA23CB3EBC00F9910A /* LaunchScreen.storyboard */,
 				462C9ACD23CB3EBC00F9910A /* Info.plist */,
@@ -120,6 +139,23 @@
 				462C9AE323CB3EBC00F9910A /* Info.plist */,
 			);
 			path = "photo-castUITests";
+			sourceTree = "<group>";
+		};
+		462C9AF323CB696D00F9910A /* PhotosViewController */ = {
+			isa = PBXGroup;
+			children = (
+				462C9AF123CB691500F9910A /* PhotosViewController.swift */,
+				462C9AF423CB697D00F9910A /* PhotosPresenter.swift */,
+			);
+			path = PhotosViewController;
+			sourceTree = "<group>";
+		};
+		462C9AF623CB6A9500F9910A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				462C9AF723CB6AB600F9910A /* UIResponder+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,7 +288,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				462C9AC423CB3EB800F9910A /* ViewController.swift in Sources */,
+				462C9AC423CB3EB800F9910A /* RootNavigationController.swift in Sources */,
+				462C9AF223CB691500F9910A /* PhotosViewController.swift in Sources */,
+				462C9AF823CB6AB600F9910A /* UIResponder+Extension.swift in Sources */,
+				462C9AF023CB5E6F00F9910A /* PhotosService.swift in Sources */,
+				462C9AF523CB697D00F9910A /* PhotosPresenter.swift in Sources */,
 				462C9AC023CB3EB800F9910A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
