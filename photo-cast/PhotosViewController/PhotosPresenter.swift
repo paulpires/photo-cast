@@ -8,16 +8,19 @@ protocol PhotosPresenterResponder
 }
 
 class PhotosPresenter
+    : PhotosCollectionViewDataSource
 {
-    private let photosService: PhotosServiceProtocol
-
     weak var responder: Responder?
 
+    private let photosService: PhotosServiceProtocol
+    private var photoViewModels: [PhotoViewModel]
+
+    // MARK: public -
     init(photosService: PhotosServiceProtocol)
     {
         self.photosService = photosService
+        photoViewModels = []
     }
-
     func fetchPhotos()
     {
         photosService.allLocalPhotos { [weak self] result in
@@ -26,6 +29,7 @@ class PhotosPresenter
             case .success(let photos):
                 print("photo collection count: \(photos.count)")
                 let photoViewModels = photos.map(PhotoViewModel.init)
+                self?.photoViewModels = photoViewModels
                 self?.present(photoViewModels)
             case .failure(let error):
                 self?.handle(error)
@@ -33,6 +37,7 @@ class PhotosPresenter
         }
     }
 
+    // MARK: private
     private func present(_ photos: [PhotoViewModel])
     {
         DispatchQueue.main.async
@@ -41,7 +46,6 @@ class PhotosPresenter
             photosResponder?.present(photos)
         }
     }
-
     private func handle(_ error: PhotosServiceError)
     {
         switch error
@@ -55,13 +59,19 @@ class PhotosPresenter
         }
     }
 
-
+    // MARK: PhotosCollectionViewDataSource -
+    func viewModels() -> [PhotoViewModel]
+    {
+        photoViewModels
+    }
+    func viewModel(forItemAt indexPath: IndexPath) -> PhotoViewModel
+    {
+        return photoViewModels[indexPath.row]
+    }
 }
 
-struct PhotoViewModel
+private extension PhotoViewModel
 {
-    let image: UIImage
-
     init(_ photo: Photo)
     {
         self.image = photo.image
