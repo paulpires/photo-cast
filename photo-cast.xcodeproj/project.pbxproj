@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -125,7 +125,6 @@
 				CCE26CEFA4A99FDB6DBDA91D /* Pods-photo-castTests.debug.xcconfig */,
 				A4E1B1D7F3DC08DE1D62C04A /* Pods-photo-castTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -653,6 +652,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8QP2H5RNLD;
 				INFOPLIST_FILE = "photo-cast/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -671,6 +671,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8QP2H5RNLD;
 				INFOPLIST_FILE = "photo-cast/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
