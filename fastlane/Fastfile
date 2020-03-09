@@ -1,23 +1,32 @@
-# This file contains the fastlane.tools configuration
-# You can find the documentation at https://docs.fastlane.tools
-#
-# For a list of all available actions, check out
-#
-#     https://docs.fastlane.tools/actions
-#
-# For a list of all available plugins, check out
-#
-#     https://docs.fastlane.tools/plugins/available-plugins
-#
-
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
+# https://docs.fastlane.tools/actions
 
 default_platform(:ios)
 
-platform :ios do
-  desc "Description of what the lane does"
-  lane :custom_lane do
-    # add actions here: https://docs.fastlane.tools/actions
-  end
+ENV['FIREBASE_TOKEN'] = '1//03zZkLYmgP70oCgYIARAAGAMSNwF-L9IrhsHaAEnSnpr0OkXso4W18Au1q2LWTr81AofZJEjfqX2Rr6-zdsu2V0m1oLFhh7_A2yo'
+
+lane :build do
+
+	build_app(
+		workspace: 'photo-cast.xcworkspace',
+		configuration: 'Release',
+		scheme: 'photo-cast',
+		output_directory: './artifacts',
+		output_name: 'photo-cast',
+		export_method: 'development',
+		clean: true
+	)
+
+end
+
+
+lane :distribute do
+
+    firebase_app_distribution(
+        app: "1:120925620508:ios:e2b67bca7eb613d25112d9",
+        release_notes: "Lots of amazing new features to test out!",
+        firebase_cli_path: "/usr/local/bin/firebase",
+        ipa_path: './artifacts/photo-cast.ipa',
+        groups: 'regression'
+    )
+
 end
