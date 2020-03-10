@@ -25,9 +25,9 @@ fastlane unit_test
 fastlane ui_test
 ```
 
-### build
+### archive_ipa
 ```
-fastlane build
+fastlane archive_ipa
 ```
 
 ### distribute
