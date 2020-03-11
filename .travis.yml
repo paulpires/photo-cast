@@ -2,7 +2,6 @@ language: swift
 os: osx
 osx_image: xcode11.2
 xcode_sdk: iphonesimulator13.2.2
-
 jobs:
   include:
     stage: Tests
