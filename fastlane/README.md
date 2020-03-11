@@ -25,14 +25,19 @@ fastlane unit_test
 fastlane ui_test
 ```
 
+### firebase_distribution
+```
+fastlane firebase_distribution
+```
+
+### testflight_distribution
+```
+fastlane testflight_distribution
+```
+
 ### archive_ipa
 ```
 fastlane archive_ipa
-```
-
-### distribute
-```
-fastlane distribute
 ```
 
 
