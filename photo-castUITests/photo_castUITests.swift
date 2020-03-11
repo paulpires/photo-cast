@@ -14,6 +14,6 @@ class photo_castUITests: XCTestCase
 
     func testExample()
     {
-        XCTFail()
+        
     }
 }
