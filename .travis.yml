@@ -1,3 +1,4 @@
+# config validation - https://config.travis-ci.com/explore
 language: swift
 os: osx
 osx_image: xcode11.2
@@ -7,15 +8,15 @@ branches:
     - /.*/
 jobs:
   include:
-    stage: Tests
+  - stage: Tests
     name: Unit Tests
     script: fastlane unit_test
 
-    stage: Tests
+  - stage: Tests
     name: UI Tests
     script: fastlane ui_test
 
-    stage: App Distribution
+  - stage: App Distribution
     name: Firebase
     if: branch =~ /^(master*|release\/w+)/
     script: fastlane firebase_distribution
