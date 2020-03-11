@@ -32,7 +32,7 @@ end
 
 lane :firebase_distribution do
 	increment_version_number version_number:"#{ENV['TRAVIS_BUILD_NUMBER']}"
-	# release notes
+	# todo: release notes
 	archive_ipa(
 		configuration:'Debug',
 		export_method:'development',
@@ -53,7 +53,7 @@ lane :testflight_distribution do
 	 	export_method:'app-store',
 	 	ipa_name:'photo-cast-release'
  	)
- 	# testflight
+ 	# todo: testflight
 end
 
 private_lane :archive_ipa do |options|
