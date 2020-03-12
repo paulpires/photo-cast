@@ -19,5 +19,5 @@ jobs:
 
   - stage: App Distribution
     name: Firebase
-    if: branch =~ /^(master*|release\/w+)/
+    if: branch =~ /^(master|release\/[0-9]\.[0-9]\.[0-9])/
     script: fastlane firebase_distribution
