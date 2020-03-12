@@ -35,11 +35,6 @@ fastlane firebase_distribution
 fastlane testflight_distribution
 ```
 
-### archive_ipa
-```
-fastlane archive_ipa
-```
-
 
 ----
 

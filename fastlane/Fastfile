@@ -31,9 +31,9 @@ end
 # app distribution
 
 lane :firebase_distribution do
-	
-	version = ENV['TRAVIS_BUILD_NUMBER']
-	if !version.blank
+
+	version = ENV["TRAVIS_BUILD_NUMBER"]
+	if !version.nil?
 		increment_version_number version_number:"#{version}"	
 	end
 
