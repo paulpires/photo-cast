@@ -69,6 +69,7 @@ private_lane :archive_ipa do |options|
 		workspace: 'photo-cast.xcworkspace',
 		configuration: "#{options[:configuration]}",
 		scheme: 'photo-cast',
+		xcargs: '-allowProvisioningUpdates',
 		export_method: "#{options[:export_method]}",
 		output_name: "#{options[:ipa_name]}",
 		output_directory: "#{artifacts}",
