@@ -5,6 +5,8 @@ default_platform(:ios)
 ENV['FIREBASE_TOKEN'] = '1//03zZkLYmgP70oCgYIARAAGAMSNwF-L9IrhsHaAEnSnpr0OkXso4W18Au1q2LWTr81AofZJEjfqX2Rr6-zdsu2V0m1oLFhh7_A2yo'
 artifacts = './artifacts/'
 
+# tests
+
 lane :unit_test do
 	run_tests(
 		workspace: 'photo-cast.xcworkspace',
@@ -26,24 +28,52 @@ lane :ui_test do
 	)
 end
 
-lane :archive_ipa do
+# app distribution
+
+lane :firebase_distribution do
+	
+	version = ENV['TRAVIS_BUILD_NUMBER']
+	if !version.blank
+		increment_version_number version_number:"#{version}"	
+	end
+
+	# todo: release notes
+
+	archive_ipa(
+		configuration:'Debug',
+		export_method:'development',
+	 	ipa_name:'photo-cast-debug'
+ 	)
+    firebase_app_distribution(
+        app: "1:120925620508:ios:e2b67bca7eb613d25112d9",
+        release_notes: "Lots of amazing new features to test out!",
+        firebase_cli_path: "/usr/local/bin/firebase",
+        ipa_path: "#{artifacts}/photo-cast-debug.ipa",
+        groups: 'regression'
+    )
+    # todo: slack update
+end
+
+lane :testflight_distribution do
+	archive_ipa(
+		configuration:'Release',
+	 	export_method:'app-store',
+	 	ipa_name:'photo-cast-release'
+ 	)
+ 	# todo: testflight
+ 	# todo: slack update
+end
+
+private_lane :archive_ipa do |options|
 	build_app(
 		workspace: 'photo-cast.xcworkspace',
-		configuration: 'Debug',
+		configuration: "#{options[:configuration]}",
 		scheme: 'photo-cast',
-		export_method: 'development',
-		output_name: 'photo-cast',
+		export_method: "#{options[:export_method]}",
+		output_name: "#{options[:ipa_name]}",
 		output_directory: "#{artifacts}",
 		clean: true
 	)
 end
 
-lane :distribute do
-    firebase_app_distribution(
-        app: "1:120925620508:ios:e2b67bca7eb613d25112d9",
-        release_notes: "Lots of amazing new features to test out!",
-        firebase_cli_path: "/usr/local/bin/firebase",
-        ipa_path: "#{artifacts}/photo-cast.ipa",
-        groups: 'regression'
-    )
-end
+# todo: on error -> slack update

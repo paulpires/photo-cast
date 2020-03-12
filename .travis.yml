@@ -1,0 +1,23 @@
+# config validation - https://config.travis-ci.com/explore
+language: swift
+os: osx
+osx_image: xcode11.2
+xcode_sdk: iphonesimulator13.2.2
+cache: bundler
+branches:
+  only:
+    - /.*/
+jobs:
+  include:
+  - stage: Tests
+    name: Unit Tests
+    script: fastlane unit_test
+
+  - stage: Tests
+    name: UI Tests
+    script: fastlane ui_test
+
+  - stage: App Distribution
+    name: Firebase
+    if: branch =~ /^(master*|release\/w+)/
+    script: fastlane firebase_distribution
