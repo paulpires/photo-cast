@@ -9,13 +9,13 @@ branches:
     - /.*/
 jobs:
   include:
-  - stage: Tests
-    name: Unit Tests
-    script: fastlane unit_test
+  # - stage: Tests
+  #   name: Unit Tests
+  #   script: fastlane unit_test
 
-  - stage: Tests
-    name: UI Tests
-    script: fastlane ui_test
+  # - stage: Tests
+  #   name: UI Tests
+  #   script: fastlane ui_test
 
   - stage: App Distribution
     name: Firebase
