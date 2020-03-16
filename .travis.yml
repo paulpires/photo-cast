@@ -9,6 +9,7 @@ branches:
     - /.*/
 before_install:
   - ./scripts/install_certs_repo_deploy_key.sh
+before_script: 'echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config'
 jobs:
   include:
   # - stage: Tests
