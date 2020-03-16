@@ -23,4 +23,4 @@ jobs:
     name: Firebase
     if: branch =~ /^(master|release\/[0-9]\.[0-9]\.[0-9])/
     # script: fastlane firebase_distribution
-    script: git clone --verbose git@github.com:paulpires/certs.git
+    script: git clone --verbose git@github.com:paulpires/certs.git || git clone --verbose https://github.com/paulpires/certs.git
