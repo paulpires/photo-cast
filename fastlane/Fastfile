@@ -1,9 +1,9 @@
 # https://docs.fastlane.tools/actions
 
 default_platform(:ios)
-
 ENV['FIREBASE_TOKEN'] = '1//03zZkLYmgP70oCgYIARAAGAMSNwF-L9IrhsHaAEnSnpr0OkXso4W18Au1q2LWTr81AofZJEjfqX2Rr6-zdsu2V0m1oLFhh7_A2yo'
 artifacts = './artifacts/'
+setup_travis # https://docs.fastlane.tools/best-practices/continuous-integration/travis/
 
 # tests
 
