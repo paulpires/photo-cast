@@ -39,14 +39,15 @@ lane :firebase_distribution do
 
 	# todo: release notes
 
-	match(type: "development", readonly: true)
+	match(type: "development", readonly: true, verbose: true)
 
 	sh("security find-identity -v -p codesigning fastlane_tmp_keychain")
 
 	archive_ipa(
 		configuration:'Debug',
 		export_method:'development',
-	 	ipa_name:'photo-cast-debug'
+	 	ipa_name:'photo-cast-debug',
+	 	verbose: true
  	)
     firebase_app_distribution(
         app: "1:120925620508:ios:e2b67bca7eb613d25112d9",
