@@ -1,7 +1,7 @@
 git_url("git@github.com:paulpires/certs.git")
 storage_mode("git")
 type("development")
-app_identifier(["photo-cast"])
+app_identifier(["pires.photo-cast"])
 # username("user@fastlane.tools") # Your Apple Developer Portal username
 
 # For all available options run `fastlane match --help`
