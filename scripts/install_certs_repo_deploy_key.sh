@@ -13,4 +13,4 @@ openssl aes-256-cbc \
     -d
 chmod 600 github_certs_deploy_key
 eval $(ssh-agent -s)
-ssh-add github_certs_deploy_key
+ssh-add -K github_certs_deploy_key
