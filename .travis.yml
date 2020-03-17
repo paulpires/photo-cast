@@ -7,8 +7,8 @@ cache: bundler
 branches:
   only:
     - /.*/
-before_install:
-  - ./scripts/install_certs_repo_deploy_key.sh
+# before_install:
+#   - ./scripts/install_certs_repo_deploy_key.sh
 before_script: 'echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config'
 jobs:
   include:
@@ -24,5 +24,5 @@ jobs:
     name: Firebase
     if: branch =~ /^(master|release\/[0-9]\.[0-9]\.[0-9])/
     # script: fastlane firebase_distribution
-    script: git clone --verbose git@github.com:paulpires/certs.git
+    script: ./scripts/install_certs_repo_deploy_key.sh && git clone --verbose git@github.com:paulpires/certs.git
     # script: git clone --verbose https://github.com/paulpires/certs.git
