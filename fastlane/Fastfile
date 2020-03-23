@@ -41,7 +41,7 @@ lane :firebase_distribution do
 
 	match(type: "development", readonly: true, verbose: true)
 
-	sh("security find-identity -v -p codesigning fastlane_tmp_keychain")
+	sh("ls ~/Library/MobileDevice/Provisioning\ Profiles/")
 
 	archive_ipa(
 		configuration:'Debug',
