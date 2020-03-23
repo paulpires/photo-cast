@@ -41,7 +41,7 @@ lane :firebase_distribution do
 
 	match(type: "development", readonly: true, verbose: true)
 
-	sh("ls ~/Library/MobileDevice/Provisioning\ Profiles/")
+	sh("ls -R ~/Library/MobileDevice/")
 
 	archive_ipa(
 		configuration:'Debug',
