@@ -1,2 +1,4 @@
 ## User settings
 xcuserdata/
+artifacts
+fastlane/report.xml

@@ -1,0 +1,6 @@
+framework module Pods_photo_cast_photo_castUITests {
+  umbrella header "Pods-photo-cast-photo-castUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
