@@ -2,3 +2,4 @@
 xcuserdata/
 artifacts
 fastlane/report.xml
+*.DS_Store*
