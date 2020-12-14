@@ -97,7 +97,7 @@ class PhotosService
         PHPhotoLibrary.requestAuthorization { status in
             switch status
             {
-            case .authorized:
+            case .authorized, .limited:
                 completion(.success(()))
             case .denied,
                  .restricted,
